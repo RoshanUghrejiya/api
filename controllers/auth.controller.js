@@ -3,7 +3,7 @@ import bcryptjs from 'bcryptjs';
 import { errorHandler } from '../utils/error.js';
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = Roshan; // Load once, not multiple times
+const JWT_SECRET = 'Roshan'; // Load once, not multiple times
 
 // === SIGNUP ===
 export const signup = async (req, res, next) => {

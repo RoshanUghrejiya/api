@@ -11,7 +11,7 @@ export const verifyToken = (req, res, next) => {
     return next(errorHandler(401, 'Access denied. No token provided.'));
   }
 
-  const JWT_SECRET = Roshan;
+  const JWT_SECRET = 'Roshan';
   if (!JWT_SECRET) {
     return next(errorHandler(500, 'JWT secret key not configured'));
   }
