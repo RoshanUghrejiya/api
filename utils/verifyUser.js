@@ -5,11 +5,13 @@ import dotenv from 'dotenv';
 dotenv.config({ path: '../.env' }); // Load environment variables from .env
 
 export const verifyToken = (req, res, next) => {
-  const token = req.cookies?.access_token;
+  const authHeader = req.headers.authorization;
 
-  if (!token) {
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
     return next(errorHandler(401, 'Access denied. No token provided.'));
   }
+
+  const token = authHeader.split(' ')[1];
 
   const JWT_SECRET = 'Roshan';
   if (!JWT_SECRET) {
