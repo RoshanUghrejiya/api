@@ -38,6 +38,12 @@ mongoose
 
 
 
+
+
+
+// Initialize Express application
+const app = express();
+
 // Allow requests from your frontend
 app.use(cors({
   origin: 'https://tellykhabri.com', // You can specify other domains or '*' for all domains
@@ -46,10 +52,6 @@ app.use(cors({
 }));
 
 // Your other middleware and routes
-
-
-// Initialize Express application
-const app = express();
 
 // Middleware
 app.use(express.json());
