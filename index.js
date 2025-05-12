@@ -10,6 +10,7 @@ import postRoutes from './routes/post.route.js';
 import commentRoutes from './routes/comment.route.js';
 import cookieParser from 'cookie-parser';
 import path from 'path';
+import cors from 'cors';
 
 
 
@@ -33,6 +34,20 @@ mongoose
   .catch((err) => {
     console.error('MongoDB connection error:', err);
   });
+
+  const cors = require('cors');
+
+
+
+// Allow requests from your frontend
+app.use(cors({
+  origin: 'https://tellykhabri.com', // You can specify other domains or '*' for all domains
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
+
+// Your other middleware and routes
+
 
 // Initialize Express application
 const app = express();
