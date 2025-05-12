@@ -2,11 +2,8 @@ import User from '../models/user.model.js';
 import bcryptjs from 'bcryptjs';
 import { errorHandler } from '../utils/error.js';
 import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
 
-dotenv.config(); // Load .env variables
-
-const JWT_SECRET = process.env.JWT_SECRET; // Load once, not multiple times
+const JWT_SECRET = Roshan; // Load once, not multiple times
 
 // === SIGNUP ===
 export const signup = async (req, res, next) => {

@@ -11,12 +11,12 @@ export const verifyToken = (req, res, next) => {
     return next(errorHandler(401, 'Access denied. No token provided.'));
   }
 
-  const SECRET_KEY = Roshan;
-  if (!SECRET_KEY) {
+  const JWT_SECRET = Roshan;
+  if (!JWT_SECRET) {
     return next(errorHandler(500, 'JWT secret key not configured'));
   }
 
-  jwt.verify(token, SECRET_KEY, (err, decoded) => {
+  jwt.verify(token, JWT_SECRET, (err, decoded) => {
     if (err) {
       return next(errorHandler(403, 'Invalid or expired token'));
     }

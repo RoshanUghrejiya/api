@@ -37,10 +37,6 @@ mongoose
 
 
 
-
-
-
-
 // Initialize Express application
 const app = express();
 
