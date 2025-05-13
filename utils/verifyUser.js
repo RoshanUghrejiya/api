@@ -1,17 +1,13 @@
 import jwt from 'jsonwebtoken';
 import { errorHandler } from './error.js';
-import dotenv from 'dotenv';
 
-dotenv.config({ path: '../.env' }); // Load environment variables from .env
 
 export const verifyToken = (req, res, next) => {
-  const authHeader = req.headers.authorization;
+  const token = req.cookies?.access_token;
 
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+  if (!token) {
     return next(errorHandler(401, 'Access denied. No token provided.'));
   }
-
-  const token = authHeader.split(' ')[1];
 
   const JWT_SECRET = 'Roshan';
   if (!JWT_SECRET) {
