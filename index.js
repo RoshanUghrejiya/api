@@ -18,7 +18,7 @@ import cors from 'cors';
 
 
 // MongoDB connection
-const mongoUri = 'mongodb+srv://roshanughrejiya121:Roshan121@cluster0.6eie6as.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // Retrieve the MongoDB URI
+const mongoUri = 'mongodb+srv://vishalughrejiya67:tellybeats67@cluster0.0lcdwms.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // Retrieve the MongoDB URI
 console.log('Mongo URI:', mongoUri);
 
 if (!mongoUri) {
@@ -42,7 +42,7 @@ const app = express();
 
 // Allow requests from your frontend
 app.use(cors({
-  origin: 'https://tellykhabri.com', // You can specify other domains or '*' for all domains
+  origin: '*', // You can specify other domains or '*' for all domains
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
