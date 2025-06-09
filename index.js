@@ -41,11 +41,22 @@ mongoose
 const app = express();
 
 // Allow requests from your frontend
+
+
+const allowedOrigins = ['https://tellykhabri.com', 'https://tellybeats.com'];
+
 app.use(cors({
-  origin: '*', // You can specify other domains or '*' for all domains
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
+
 
 // Your other middleware and routes
 
