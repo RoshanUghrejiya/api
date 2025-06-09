@@ -43,7 +43,6 @@ const app = express();
 // Allow requests from your frontend
 
 
-import cors from 'cors';
 
 // Allow only your frontend domain
 const allowedOrigins = ['https://tellykhabri.com', 'http://localhost:5173','https://tellybeats.com'];
