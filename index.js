@@ -47,11 +47,12 @@ const app = express();
 // Allow only your frontend domain
 app.use(
   cors({
-    origin: ['https://tellykhabri.com'],
+    origin: 'https://tellykhabri.com',
     credentials: true,
   })
 );
 
+app.options('*', cors());
 
 
 
