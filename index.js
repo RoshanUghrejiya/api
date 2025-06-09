@@ -43,19 +43,26 @@ const app = express();
 // Allow requests from your frontend
 
 
-const allowedOrigins = ['https://tellykhabri.com', 'https://tellybeats.com'];
+import cors from 'cors';
 
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-}));
+// Allow only your frontend domain
+const allowedOrigins = ['https://tellykhabri.com', 'http://localhost:5173','https://tellybeats.com'];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg = `The CORS policy for this site does not allow access from the specified Origin: ${origin}`;
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
+    credentials: true, // needed for cookies if you're using them
+  })
+);
+
 
 
 // Your other middleware and routes
