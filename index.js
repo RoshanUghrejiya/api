@@ -1,4 +1,6 @@
-import cors from 'cors';
+// Initialize Express application
+const app = express();
+
 // Allow only your frontend domain
 app.use(
   cors({
@@ -50,8 +52,6 @@ mongoose
 
 
 
-// Initialize Express application
-const app = express();
 
 // Allow requests from your frontend
 
