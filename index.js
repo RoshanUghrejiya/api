@@ -1,3 +1,5 @@
+
+import cors from 'cors'
 // Initialize Express application
 const app = express();
 
