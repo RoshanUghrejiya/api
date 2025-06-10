@@ -1,3 +1,15 @@
+import cors from 'cors';
+// Allow only your frontend domain
+app.use(
+  cors({
+    origin: 'https://tellykhabri.com',
+    credentials: true,
+  })
+);
+
+app.options('*', cors());
+
+
 import dotenv from 'dotenv';
 // Load environment variables
 dotenv.config({ path: '../.env' }); // Relative to where index.js runs
@@ -10,7 +22,8 @@ import postRoutes from './routes/post.route.js';
 import commentRoutes from './routes/comment.route.js';
 import cookieParser from 'cookie-parser';
 import path from 'path';
-import cors from 'cors';
+
+
 
 
 
@@ -44,15 +57,6 @@ const app = express();
 
 
 
-// Allow only your frontend domain
-app.use(
-  cors({
-    origin: 'https://tellykhabri.com',
-    credentials: true,
-  })
-);
-
-app.options('*', cors());
 
 
 
