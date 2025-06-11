@@ -35,18 +35,19 @@ export const updateUser = async (req, res, next) => {
     }
   }
   try {
-    const updatedUser = await User.findByIdAndUpdate(
-      req.params.userId,
-      {
-        $set: {
-          username: req.body.username,
-          email: req.body.email,
-          profilePicture: req.body.profilePicture,
-          password: req.body.password,
-        },
-      },
-      { new: true }
-    );
+    const fieldsToUpdate = {};
+
+if (req.body.username) fieldsToUpdate.username = req.body.username;
+if (req.body.email) fieldsToUpdate.email = req.body.email;
+if (req.body.profilePicture) fieldsToUpdate.profilePicture = req.body.profilePicture;
+if (req.body.password) fieldsToUpdate.password = req.body.password;
+
+const updatedUser = await User.findByIdAndUpdate(
+  req.params.userId,
+  { $set: fieldsToUpdate },
+  { new: true }
+);
+
     const { password, ...rest } = updatedUser._doc;
     res.status(200).json(rest);
   } catch (error) {
