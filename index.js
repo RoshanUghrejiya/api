@@ -35,7 +35,7 @@ import path from 'path';
 
 
 // MongoDB connection
-const mongoUri = 'mongodb+srv://vishalughrejiya67:tellybeats67@cluster0.0lcdwms.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // Retrieve the MongoDB URI
+const mongoUri = 'mongodb+srv://roshanughrejiya121:Roshan121@cluster0.6eie6as.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // Retrieve the MongoDB URI
 console.log('Mongo URI:', mongoUri);
 
 if (!mongoUri) {
