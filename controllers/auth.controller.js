@@ -62,6 +62,7 @@ export const signin = async (req, res, next) => {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'None',
+        maxAge: 7 * 24 * 60 * 60 * 1000, // ✅ Add here too
       })
       .json(rest);
   } catch (error) {
